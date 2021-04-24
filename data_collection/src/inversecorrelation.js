@@ -1,10 +1,11 @@
 //npm install calculate-correlation
 var fs = require('fs');
+const path = require('path');
 const calculateCorrelation = require("calculate-correlation");
 
 var correlations = []
 var hoodsinward = JSON.parse(fs.readFileSync('./hoodsinward.json', 'utf8'));
-var health_neighborhoods1=JSON.parse(fs.readFileSync('C:/Users/rober/Documents/los-altos-hacks-v/data_collection/data/health_neighborhoods1.geojson', 'utf8'));
+var health_neighborhoods1=JSON.parse(fs.readFileSync(path.join(__dirname, "../data/health_neighborhoods1.geojson"), 'utf8'));
 hoodsinward.forEach(ward =>{
     //make list of incomes of neighborhood in ward
     var incomes=[]
