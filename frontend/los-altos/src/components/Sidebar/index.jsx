@@ -1,4 +1,11 @@
-import { Slide, Box, Button, Divider, VStack } from '@chakra-ui/react';
+import {
+  Slide,
+  Box,
+  Button,
+  Divider,
+  VStack,
+  useDisclosure,
+} from '@chakra-ui/react';
 import './styles.css';
 
 /**
@@ -9,11 +16,15 @@ import './styles.css';
  *
  */
 const Sidebar = () => {
+  const { isOpen, onToggle } = useDisclosure();
   return (
     <>
+      <div className="toggll">
+        <Button onClick={onToggle}>Toggle Sidebar</Button>
+      </div>
       <Slide
         direction="left"
-        in={true}
+        in={isOpen}
         style={{ zIndex: 10, width: '10%', height: '80vh' }}
       >
         <Box
