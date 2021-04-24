@@ -12,6 +12,8 @@ import {
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { Logo } from './Logo';
 
+import MapComponent from './components/MapComponent/MapComponent';
+
 function App() {
   return (
     <ChakraProvider theme={theme}>
@@ -32,6 +34,7 @@ function App() {
             >
               Learn Chakra
             </Link>
+            <MapComponent />
           </VStack>
         </Grid>
       </Box>
