@@ -16,6 +16,10 @@ var master = {
     "points": []
 }
 
+var casesMaster = {
+  "cases": []
+}
+
 axios.get(base).then((res) => {
     res.data.features.forEach(point => {
         if (!codes.includes(point.properties["NEIGHBORHOOD"])) {
@@ -29,4 +33,11 @@ axios.get(base).then((res) => {
 
 axios.get("https://opendata.arcgis.com/datasets/de63a68eb7674548ae0ac01867123f7e_13.geojson").then((res) => {
     fs.writeFileSync(path.join(outputPath, "health_neighborhoods.geojson"), JSON.stringify(res.data))
+})
+
+axios.get("https://opendata.arcgis.com/datasets/62f6f28dbfc74ae489fa3dcda9e94744_28.geojson").then((res) => {
+    res.data.features.forEach(feature => {
+        casesMaster.cases.push(feature.properties)
+    })
+    fs.writeFileSync(path.join(outputPath, "total_cases.json"), JSON.stringify(casesMaster))
 })
