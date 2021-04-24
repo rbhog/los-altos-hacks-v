@@ -40,6 +40,16 @@ var census = {}
 
 var population = {}
 
+// stores relative population vaccinated
+var vaccinated = [
+    20.87, 20.69, 10.52, 24.37, 15.12, 13.65, 11.86, 21.85, 18.13, 0.43, 
+    14.65, 19.24, 11.0, 18.21, 11.64, 0.0, 0.0, 14.8, 15.86, 9.6,
+    15.96, 11.22, 19.52, 16.17, 18.72, 9.11, 14.93, 10.16, 22.2, 9.29,
+    20.69, 9.54, 20.31, 15.18, 10.68, 6.87, 14.02, 11.08, 13.63, 16.31,
+    22.54, 18.62, 17.74, 15.59, 14.42, 18.6, 18.78, 8.07, 29.67, 16.98, 
+    16.89, 0.0
+]
+
 // axios.get(base_tests).then((res) => {
 //     res.data.features.forEach(point => {
 //         if (!codes.includes(point.properties["NEIGHBORHOOD"])) {
@@ -113,8 +123,11 @@ axios.get(neighborhood_tract).then((res) => {
             totalPopulation = populations.reduce((a, b) => a + b)
         }
 
+        var index = vaccinated.length - parseInt(feature.properties["CODE"].substring(1, feature.properties["CODE"].length), 10) - 1
+
         feature.properties["AVERAGE_INCOME"] = averageIncome
         feature.properties["TOTAL_POPULATION"] = totalPopulation
+        feature.properties["RELATIVE_VACCINATED"] = vaccinated[index]
         
         master.features.push(feature)
     })
