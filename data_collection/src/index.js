@@ -24,9 +24,9 @@ var master = {
     features: []
 }
 
-var casesMaster = {
-  "cases": []
-}
+
+// stores cases per neighborhood data response
+var cases = {}
 
 // stores neighborhood by tract data response
 
@@ -62,16 +62,12 @@ var vaccinated = [
 // })
 
 
-// axios.get(base_cases).then((res) => {
-//     res.data.features.forEach(feature => {
-//         casesMaster.cases.push(feature.properties)
-//     })
-//     fs.writeFileSync(path.join(outputPath, "total_cases.json"), JSON.stringify(casesMaster))
-// })
-        
+       
 
-// get tracts by each neighborhood
-axios.get(neighborhood_tract).then((res) => {
+axios.get(base_cases).then((res) => {
+    cases = res.data
+    return axios.get(neighborhood_tract)
+}).then((res) => { // get tracts by each neighborhood
     tracts = res.data
     return axios.get(median_income_by_tract)
 }).then((res) => {
@@ -125,6 +121,34 @@ axios.get(neighborhood_tract).then((res) => {
 
         var index = vaccinated.length - parseInt(feature.properties["CODE"].substring(1, feature.properties["CODE"].length), 10) - 1
 
+        var casesForNeighborhood = cases.features.filter(point => point.properties["NEIGHBORHOOD"].split(":")[0] === feature.properties["CODE"])
+
+        var dates = []
+
+        casesForNeighborhood.forEach(incident => {
+            var date = incident.properties["DATE_REPORTED"]
+            dates.push(date)
+        })
+
+        dates.sort()
+        var latest = {}
+        if (dates.length > 0) {
+            latest = casesForNeighborhood.filter(incident => incident.properties["DATE_REPORTED"] === dates[dates.length-1])
+        }
+
+        // if (Object.entries(latest[0]).length > 0) {
+        //     feature.properties["POSITIVE_CASES"] = latest[0].properties["TOTAL_POSITIVES"]
+        // } else {
+        //     feature.properties["POSITIVE_CASES"] = 0
+        // }
+        // console.log(latest[0].properties)
+        if (latest[0]) {
+            feature.properties["POSITIVE_CASES"] = latest[0].properties["TOTAL_POSITIVES"]
+        } else {
+            feature.properties["POSITIVE_CASES"] = 0
+        }
+
+        // feature.properties["POSITIVE_CASES"] = latest[0].properties["TOTAL_POSITIVES"]
         feature.properties["AVERAGE_INCOME"] = averageIncome
         feature.properties["TOTAL_POPULATION"] = totalPopulation
         feature.properties["RELATIVE_VACCINATED"] = vaccinated[index]
