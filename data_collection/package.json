@@ -1,0 +1,14 @@
+{
+  "name": "data_collection",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "fs-extra": "^9.1.0",
+    "path": "^0.12.7"
+  }
+}
