@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import './map-style.css';
+import './styles.css';
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl-csp';
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import MapboxWorker from 'worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker';
@@ -19,18 +19,82 @@ const Mapp = () => {
   const [mapObj, setMapObj] = useState();
 
   // listener for update
-  useEffect(() => {
-   
-  });
+  useEffect(() => {});
 
   // general use effect
   useEffect(() => {
     console.log('hi');
     const map = new mapboxgl.Map({
       container: mapContainer.current,
-      style: 'mapbox://styles/mapbox/streets-v11',
+      style: 'mapbox://styles/mapbox/dark-v10',
       center: [lng, lat],
       zoom: zoom,
+      antialias: true,
+      pitch: 60,
+    });
+    
+    
+    
+    map.on('load', () => {
+      // map.addSource('mapbox-dem', {
+      //   type: 'raster-dem',
+      //   url: 'mapbox://mapbox.mapbox-terrain-dem-v2',
+      //   tileSize: 512,
+      //   maxZoom: 16,
+      // });
+      // map.setTerrain({ source: 'mapbox-dem', exaggeration: 1.5 });
+      
+      // skybox
+      map.addLayer({
+        id: 'sky',
+        type: 'sky',
+        paint: {
+          'sky-type': 'atmosphere',
+          'sky-atmosphere-sun': [0.0, 90.0],
+          'sky-atmosphere-sun-intensity': 15,
+        },
+      });
+      
+      // test 3d
+      map.addSource('floorplan', {
+        // GeoJSON Data source used in vector tiles, documented at
+        // https://gist.github.com/ryanbaumann/a7d970386ce59d11c16278b90dde094d
+        type: 'geojson',
+        data:
+          'https://docs.mapbox.com/mapbox-gl-js/assets/indoor-3d-map.geojson',
+      });
+      map.addLayer({
+        id: 'room-extrusion',
+        type: 'fill-extrusion',
+        source: 'floorplan',
+        paint: {
+          // See the Mapbox Style Specification for details on data expressions.
+          // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions
+
+          // Get the fill-extrusion-color from the source 'color' property.
+          'fill-extrusion-color': ['get', 'color'],
+
+          // Get fill-extrusion-height from the source 'height' property.
+          'fill-extrusion-height': ['get', 'height'],
+
+          // Get fill-extrusion-base from the source 'base_height' property.
+          'fill-extrusion-base': ['get', 'base_height'],
+
+          // Make extrusions slightly opaque for see through indoor walls.
+          'fill-extrusion-opacity': 0.5,
+        },
+      });
+      
+      // circles 
+      
+      // color = income
+      
+      // size/height = cases per capita
+      
+      // vaccination data
+    
+      
+      ///////
     });
     setMapObj(map);
     // map.on('sourcedataloading', function () {
@@ -87,11 +151,7 @@ const Mapp = () => {
 
   return (
     <div>
-      {!!false ? (
-        <CircularProgress isIndeterminate color="green.300" />
-      ) : (
-        <></>
-      )}
+      {!!false ? <CircularProgress isIndeterminate color="green.300" /> : <></>}
       <>
         <div className="sidebar">
           Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}

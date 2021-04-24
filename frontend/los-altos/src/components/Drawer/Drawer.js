@@ -1,14 +1,19 @@
 import { Slide, Box, useDisclosure, Button } from '@chakra-ui/react';
-import './pull.css';
+import './styles.css';
+
+/**
+ * The drawer will generate graphs: scatterplots, whatever for whatever selected datapoint
+ * @returns
+ */
 const Drawer = () => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
     <>
       <div className="togg">
-        <Button onClick={onToggle}>Click Me</Button>
+        <Button onClick={onToggle}>Toggle Drawer</Button>
       </div>
-      <Slide direction="bottom" in={isOpen} style={{ zIndex: 10 }}>
+      <Slide direction="bottom" in={isOpen} style={{ zIndex: 12 }}>
         <Box
           p="40px"
           color="white"
