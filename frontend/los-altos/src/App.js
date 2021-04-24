@@ -12,7 +12,8 @@ import {
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { Logo } from './Logo';
 
-import MapComponent from './components/MapComponent/MapComponent';
+import Map from './components/Map/Map';
+import Drawer from './components/Drawer/Drawer';
 
 function App() {
   return (
@@ -34,7 +35,8 @@ function App() {
             >
               Learn Chakra
             </Link>
-            <MapComponent />
+            <Map />
+            <Drawer />
           </VStack>
         </Grid>
       </Box>
