@@ -1,0 +1,91 @@
+{
+    "ward1":{
+        "hoods":[
+            "ADAMS MORGAN",
+            "COLUMBIA HEIGHTS", 
+            "MOUNT PLEASANT",         
+            "LOGAN CIRCLE/SHAW",
+            "SOUTH COLUMBIA HEIGHTS",
+            "U ST/PLEASANT"
+        ]
+    },
+    "ward2":{
+        "hoods":[
+            "CHINATOWN",
+            "GEORGETOWN EAST",
+            "FOGGY BOTTOM/GWU",
+            "GWU",
+            "GEORGETOWN",
+            "GWU/ FOGGY BOTTOM",
+            "LOGAN CIRCLE/SHAW",
+            "NATIONAL MALL"
+        ]
+    },
+    "ward3":{
+        "hoods":[
+            "CATHEDRAL HEIGHTS",
+            "CHEVY CHASE",
+            "FOREST HILLS",
+            "TENLEYTOWN",
+            "KENT/PALISADES",
+            "WOODLEY PARK"
+        ]
+    },
+    "ward4":{
+        "hoods":[
+            "CHEVY CHASE",
+            "LAMOND RIGGS",
+            "BARNABY WOODS",
+            "SHEPHERD PARK",
+            "PETWORTH",
+            "BRIGHTWOOD",
+            "BRIGHTWOOD PARK",
+            "16th ST HEIGHTS"
+        ]
+    },
+    "ward5":{
+        "hoods":[
+            "EDGEWOOD",
+            "FORT LINCOLN/GATEWAY",
+            "MICHIGAN PARK",
+            "TRINIDAD",
+            "BLOOMINGDALE",
+            "WOODRIDGE",
+            "BRENTWOOD",
+            "DC MEDICAL CENTER"
+        ]
+    },
+    "ward6":{
+        "hoods":[
+            "KINGMAN PARK",
+            "SW/WATERFRONT",
+            "UNION STATION",
+            "CAPITOL HILL",
+            "NAVAL STATION & AIR FORCE"
+        ]
+    },
+    "ward7":{
+        "hoods":[
+            "EASTLAND GARDENS",
+            "FORT DUPONT",
+            "MARSHALL HEIGHTS",
+            "LINCOLN HEIGHTS",
+            "NAYLOR/HILLCREST",
+            "TWINING",
+            "HILL EAST",
+            "STADIUM ARMORY"
+            
+        ]
+    },
+    "ward8":{
+        "hoods":[
+            "CONGRESS HEIGHTS/SHIPLEY",
+            "DOUGLASS",
+            "HISTORIC ANACOSTIA",
+            "BELLEVUE",
+            "UNION STATION",
+            "WASHINGTON HIGHLANDS",
+            "SAINT ELIZABETHS"
+        ]
+    }
+}
