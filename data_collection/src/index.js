@@ -41,3 +41,11 @@ axios.get("https://opendata.arcgis.com/datasets/62f6f28dbfc74ae489fa3dcda9e94744
     })
     fs.writeFileSync(path.join(outputPath, "total_cases.json"), JSON.stringify(casesMaster))
 })
+
+axios.get("https://opendata.arcgis.com/datasets/1d586a67d5ce4eceb5d51bec653d6774_14.geojson").then((res) => {
+    fs.writeFileSync(path.join(outputPath, "neighborhoods_to_censustracts.geojson"), JSON.stringify(res.data))
+})
+
+axios.get("https://opendata.arcgis.com/datasets/6969dd63c5cb4d6aa32f15effb8311f3_8.geojson").then((res) => {
+    fs.writeFileSync(path.join(outputPath, "census2010.geojson"), JSON.stringify(res.data))
+})
