@@ -105,6 +105,6 @@ axios.get(neighborhood_tract).then((res) => {
 // get a health neighborhood from the geojson - DONE
 // get the census tracts for given neighborhood using neighborhoods_to_censustracts.geojson - DONE
 // average the FAGI_MEDIAN_2015 for all census tracts in a given neighborhood - DONE
-// add the median income property to the neighborhood feature
-// push the feature to the master collection
+// add the median income property to the neighborhood feature - DONE
+// push the feature to the master collection - DONE
 // write the file
