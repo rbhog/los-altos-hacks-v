@@ -8,7 +8,15 @@ var minPopdens=100000
 var maxPopdens=0
 var mincovid=100000
 var maxcovid=0
+var minvax=10000
+var maxvax=0
 health_neighborhoods1.features.forEach(hood =>{
+    if (hood.properties["RELATIVE_VACCINATED"]>maxvax){
+        maxvax=hood.properties["RELATIVE_VACCINATED"]
+    }
+    if (hood.properties["RELATIVE_VACCINATED"]<minvax && hood.properties["RELATIVE_VACCINATED"]!=0 && hood.properties["RELATIVE_VACCINATED"]!=.43){
+        minvax=hood.properties["RELATIVE_VACCINATED"]
+    }
     if (hood.properties["AVERAGE_INCOME"]>maxIncome){
         maxIncome=hood.properties["AVERAGE_INCOME"]
     }
@@ -29,4 +37,4 @@ health_neighborhoods1.features.forEach(hood =>{
     }
 
 })
-console.log(minIncome,maxIncome,minPopdens,maxPopdens,mincovid,maxcovid)
+console.log(minIncome,maxIncome,minPopdens,maxPopdens,mincovid,maxcovid,minvax,maxvax)
