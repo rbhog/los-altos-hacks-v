@@ -6,6 +6,18 @@ import MapboxWorker from 'worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker';
 
 import { CircularProgress } from '@chakra-ui/react';
 
+import {
+  Slide,
+  Box,
+  Button,
+  Divider,
+  VStack,
+  HStack,
+  useDisclosure,
+  Text,
+  Tooltip,
+} from '@chakra-ui/react';
+
 mapboxgl.workerClass = MapboxWorker;
 mapboxgl.accessToken =
   'pk.eyJ1Ijoicm9iZXJ0YmFvIiwiYSI6ImNrbmJ4b2EyazB3a2kyb29vdmI4NnFhdHkifQ.eWUrs0-n2fF0u1XZhNbE4w';
@@ -106,7 +118,13 @@ const Map = () => {
   const [zoom, setZoom] = useState(11);
   const [snapshot, setSnapshot] = useState({});
   const [mapObj, setMapObj] = useState();
-  const [hoveredWardID, setHoveredWardID] = useState(3);
+  const [hoveredWardID, setHoveredWardID] = useState('');
+  const [hoveredRep, setHoveredRep] = useState('');
+  const [hoveredPop, setHoveredPop] = useState('');
+  const [hoveredIncome, setHoveredIncome] = useState('');
+  const [hoveredCases, setHoveredCases] = useState('');
+
+  const { isOpen, onToggle } = useDisclosure();
 
   // listener for update
   useEffect(() => {});
@@ -254,6 +272,15 @@ const Map = () => {
       if (e.features.length > 0) {
         // setHoveredWardID(e.features[0].properties.WARD.toString());
       }
+      let prop = e.features[0].properties;
+      let current = prop.WARD;
+      if (hoveredWardID != current) {
+        setHoveredWardID(current);
+        setHoveredRep(prop.REP_NAME);
+        setHoveredPop(prop.POP_2011_2015);
+        setHoveredIncome(prop.PER_CAPITA_INCOME);
+        setHoveredCases(prop.CASES);
+      }
       // setHoveredWardID(parseInt(e.features[0].properties.WARD));
       // console.log(parseInt(e.features[0].properties.WARD));
       if (map.getLayer('ward-extrusion-active')) {
@@ -267,6 +294,13 @@ const Map = () => {
 
     map.on('mouseleave', 'ward-extrusion', function () {
       // setHoveredWardID(5);
+      if (hoveredWardID != null) {
+        setHoveredWardID(null);
+        setHoveredRep(null);
+        setHoveredPop(null);
+        setHoveredIncome(null);
+        setHoveredCases(null);
+      }
       if (map.getLayer('ward-extrusion-active')) {
         map.setFilter('ward-extrusion-active', [
           '==',
@@ -295,6 +329,52 @@ const Map = () => {
           Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
         </div> */}
         <div className="map-container" ref={mapContainer} />
+        <>
+          <div className="togglle">
+            <Button onClick={onToggle}>Toggle Data</Button>
+          </div>
+          <Slide
+            direction="right"
+            in={isOpen}
+            style={{ zIndex: 10, width: '10%', height: '70vh', top: '300px' }}
+          >
+            <Box
+              p="20px"
+              m="10px"
+              color="white"
+              mt="4"
+              bg="#1a1a1aEF"
+              rounded="md"
+              shadow="md"
+            >
+              <VStack
+                divider={<Divider borderColor="gray.600" />}
+                spacing={4}
+                align="stretch"
+                className="sidebarWrapper"
+              >
+                <Text className="sidebarHeader" fontSize="2xl">
+                  Data
+                </Text>
+                <Text className="sidebarHeader" fontSize="2xl">
+                  Current Ward : {hoveredWardID}
+                </Text>
+                <Text className="sidebarHeader" fontSize="2xl">
+                  Ward Representative: {hoveredRep}
+                </Text>
+                <Text className="sidebarHeader" fontSize="2xl">
+                  Population: {hoveredPop}
+                </Text>
+                <Text className="sidebarHeader" fontSize="2xl">
+                  Average Income: {hoveredIncome}
+                </Text>
+                <Text className="sidebarHeader" fontSize="2xl">
+                  COVID Cases: {hoveredCases}
+                </Text>
+              </VStack>
+            </Box>
+          </Slide>
+        </>
       </>
     </div>
   );
