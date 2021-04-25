@@ -34,14 +34,6 @@ const Mapp = () => {
     });
 
     map.on('load', () => {
-      // map.addSource('mapbox-dem', {
-      //   type: 'raster-dem',
-      //   url: 'mapbox://mapbox.mapbox-terrain-dem-v2',
-      //   tileSize: 512,
-      //   maxZoom: 16,
-      // });
-      // map.setTerrain({ source: 'mapbox-dem', exaggeration: 1.5 });
-
       // skybox
       map.addLayer({
         id: 'sky',
@@ -53,55 +45,16 @@ const Mapp = () => {
         },
       });
 
-      // test 3d
-      map.addSource('floorplan', {
-        // GeoJSON Data source used in vector tiles, documented at
-        // https://gist.github.com/ryanbaumann/a7d970386ce59d11c16278b90dde094d
-        type: 'geojson',
-        data:
-          'https://docs.mapbox.com/mapbox-gl-js/assets/indoor-3d-map.geojson',
-      });
-      map.addLayer({
-        id: 'room-extrusion',
-        type: 'fill-extrusion',
-        source: 'floorplan',
-        paint: {
-          // See the Mapbox Style Specification for details on data expressions.
-          // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions
-
-          // Get the fill-extrusion-color from the source 'color' property.
-          'fill-extrusion-color': ['get', 'color'],
-
-          // Get fill-extrusion-height from the source 'height' property.
-          'fill-extrusion-height': ['get', 'height'],
-
-          // Get fill-extrusion-base from the source 'base_height' property.
-          'fill-extrusion-base': ['get', 'base_height'],
-
-          // Make extrusions slightly opaque for see through indoor walls.
-          'fill-extrusion-opacity': 0.5,
-        },
-      });
-
       // circles
-      map.addSource('circles', {
+      map.addSource('regions', {
         type: 'geojson',
         data: './health_neighborhoods1.geojson',
       });
-      // map.addLayer({
-      //   id: 'park-boundary',
-      //   type: 'fill',
-      //   source: 'circles',
-      //   paint: {
-      //     'fill-color': '#888888',
-      //     'fill-opacity': 0.8,
-      //   },
-      //   filter: ['==', '$type', 'Polygon'],
-      // });
+
       map.addLayer({
         id: 'outline',
         type: 'line',
-        source: 'circles',
+        source: 'regions',
         layout: {},
         paint: {
           'line-color': '#000',
@@ -111,12 +64,12 @@ const Mapp = () => {
       map.addLayer({
         id: 'rwanda-shade',
         type: 'fill',
-        source: 'circles',
+        source: 'regions',
         layout: {},
         paint: {
           'fill-color': [
             'let',
-            'density',
+            'bruh',
             [
               '/',
               ['get', 'TOTAL_POPULATION'],
@@ -130,7 +83,7 @@ const Mapp = () => {
               [
                 'interpolate',
                 ['linear'],
-                ['var', 'density'],
+                ['var', 'bruh'],
                 0,
                 ['to-color', '#edf8e9'],
                 1,
@@ -140,7 +93,7 @@ const Mapp = () => {
               [
                 'interpolate',
                 ['linear'],
-                ['var', 'density'],
+                ['var', 'bruh'],
                 0,
                 ['to-color', '#eff3ff'],
                 1,
@@ -153,7 +106,72 @@ const Mapp = () => {
       });
 
       // color = income
-
+      map.addSource('circle', {
+        type: 'geojson',
+        data: './centroids.geojson',
+      });
+      // map.addLayer({
+      //   id: 'income',
+      //   type: 'circle',
+      //   source: 'circle',
+      //   filter: ['==', '$type', 'Point'],
+      //   paint: {
+      //     'circle-radius': 5,
+      //     'circle-color': '#fff',
+      //   },
+      // });
+      map.addLayer({
+        id: 'income',
+        type: 'circle',
+        source: 'circle',
+        filter: ['==', '$type', 'Point'],
+        paint: {
+          'circle-radius': [
+            'let',
+            'density',
+            ['/', ['get', 'POSITIVE_CASES'], ['get', 'TOTAL_POPULATION']],
+            [
+              'interpolate',
+              ['linear'],
+              ['zoom'],
+              8,
+              ['interpolate', ['linear'], ['var', 'density'], 0, 5, 1, 250],
+              10,
+              ['interpolate', ['linear'], ['var', 'density'], 0, 5, 1, 250],
+            ],
+          ],
+          'circle-color': [
+            'let',
+            'density',
+            ['get', 'AVERAGE_INCOME'],
+            [
+              'interpolate',
+              ['linear'],
+              ['zoom'],
+              8,
+              [
+                'interpolate',
+                ['linear'],
+                ['var', 'density'],
+                0,
+                ['to-color', '#fa1100'],
+                100000,
+                ['to-color', '#00ffa2'],
+              ],
+              10,
+              [
+                'interpolate',
+                ['linear'],
+                ['var', 'density'],
+                0,
+                ['to-color', '#fa1100'],
+                100000,
+                ['to-color', '#00ffa2'],
+              ],
+            ],
+          ],
+        },
+      });
       // size/height = cases per capita
 
       // vaccination data
