@@ -18,10 +18,10 @@ const Landing = () => {
                 <Box className="feature">
                     <VStack spacing={5} >
                         <Text className="title" fontSize="7xl">
-                          from<pre><Typewriter options={{ strings: [" DC", " Philly", " Chicago", " LA"], autoStart: true, loop: true }} /></pre>import pandemic 
+                          from<pre><Typewriter options={{ strings: [" dc", " philly", " chicago", " la", " seattle"], autoStart: true, loop: true }} /></pre>import pandemic 
                         </Text>
-                        <Text className="description" fontSize="xl">
-                            More descriptions and funny shit here
+                        <Text className="description" fontSize="xl" maxWidth="40%">
+                            visualizing income disparities and their corresponding effects on populations during the COVID-19 pandemic, to develop an efficient, timely vaccination schedule for local governments
                         </Text>
                     </VStack>
                 </Box>

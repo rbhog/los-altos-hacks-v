@@ -18,7 +18,7 @@ const Drawer = () => {
           p="40px"
           color="white"
           mt="4"
-          bg="teal.500"
+          bg="#1a1a1aEF"
           rounded="md"
           shadow="md"
         >
