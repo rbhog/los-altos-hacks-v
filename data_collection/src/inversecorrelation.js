@@ -48,5 +48,9 @@ hoodsinward.forEach(ward =>{
 }   
 )
 
+axios.get("https://opendata.arcgis.com/datasets/0ef47379cbae44e88267c01eaec2ff6e_31.geojson").then((res) => {
+    fs.writeFileSync(path.join(outputPath, "wards.geojson"), JSON.stringify(res.data))
+})
+
     
 //i need x=median income per hood, y=total cases per hood
