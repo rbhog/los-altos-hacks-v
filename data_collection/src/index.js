@@ -197,7 +197,7 @@ axios.get(base_cases).then((res) => {
         }
 
         // feature.properties["POSITIVE_CASES"] = latest[0].properties["TOTAL_POSITIVES"]
-        feature.properties["TOTAL_VACCINATED"] = vaccinations[feature.properties["CODE"]]
+        feature.properties["TOTAL_VACCINATED"] = parseInt(vaccinations[feature.properties["CODE"]].replace(",",""))
         feature.properties["AVERAGE_INCOME"] = averageIncome
         feature.properties["TOTAL_POPULATION"] = totalPopulation
         feature.properties["RELATIVE_VACCINATED"] = vaccinated[index]
