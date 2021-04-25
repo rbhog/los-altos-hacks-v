@@ -55,6 +55,61 @@ var centroids = {
     features: []
 }
 
+var vaccinations = {
+	"N51": "1,736",
+	"N50": "2,733",
+	"N49": "575",
+	"N48": "4,494",
+	"N47": "3,016",
+	"N46": "2,430",
+	"N45": "2,125",
+	"N44": "3,802",
+	"N43": "3,867",
+	"N42": "12",
+	"N41": "1,431",
+	"N40": "1,755",
+	"N39": "768",
+	"N38": "2,606",
+	"N37": "2,040",
+    "N36": "0",
+    "N35": "0",
+	"N34": "1,754",
+	"N33": "2,253",
+	"N32": "1,645",
+	"N31": "4,583",
+	"N30": "1,826",
+	"N29": "2,344",
+	"N28": "2,685",
+	"N27": "3,622",
+	"N26": "1,154",
+	"N25": "1,657",
+	"N24": "1,524",
+	"N23": "3,131",
+	"N22": "802",
+	"N21": "1,965",
+	"N20": "1,569",
+	"N19": "2,336",
+	"N18": "1,434",
+	"N17": "1,121",
+	"N16": "774",
+	"N15": "226",
+	"N14": "1,119",
+	"N13": "3,565",
+	"N12": "3,419",
+	"N11": "1,584",
+	"N10": "3,495",
+	"N9": "2,669",
+	"N8": "1,745",
+	"N7": "2,565",
+	"N6": "1,841",
+	"N5": "2,833",
+	"N4": "1,348",
+	"N3": "1,808",
+	"N2": "4,046",
+	"N1": "3,533",
+    "N0": "0"
+}
+
 axios.get(base_cases).then((res) => {
     cases = res.data
     return axios.get(neighborhood_tract)
@@ -142,6 +197,7 @@ axios.get(base_cases).then((res) => {
         }
 
         // feature.properties["POSITIVE_CASES"] = latest[0].properties["TOTAL_POSITIVES"]
+        feature.properties["TOTAL_VACCINATED"] = vaccinations[feature.properties["CODE"]]
         feature.properties["AVERAGE_INCOME"] = averageIncome
         feature.properties["TOTAL_POPULATION"] = totalPopulation
         feature.properties["RELATIVE_VACCINATED"] = vaccinated[index]
