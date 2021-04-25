@@ -124,6 +124,11 @@ const Map = () => {
   const [hoveredIncome, setHoveredIncome] = useState('');
   const [hoveredCases, setHoveredCases] = useState('');
 
+  const [hoveredNeigh, setHoveredNeigh] = useState('');
+  const [hoveredCasesNeigh, setHoveredCasesNeigh] = useState('');
+
+  const [zoomed, setZoomed] = useState(true);
+
   const { isOpen, onToggle } = useDisclosure();
 
   // listener for update
@@ -271,6 +276,7 @@ const Map = () => {
         e.features[0].properties.CENTER[1],
       ]);
       console.log('extrusion clicked!');
+      setZoomed(false);
       map.flyTo({
         center: eval(e.features[0].properties.CENTER),
         pitch: 0,
@@ -302,6 +308,7 @@ const Map = () => {
     map.on('mouseleave', 'ward-extrusion', function () {
       // setHoveredWardID(5);
       if (hoveredWardID != null) {
+        console.log('??');
         setHoveredWardID(null);
         setHoveredRep(null);
         setHoveredPop(null);
@@ -318,15 +325,12 @@ const Map = () => {
     });
 
     map.on('mousemove', 'neighborhood-region', function (e) {
-      // let prop = e.features[0].properties;
-      // let current = prop.WARD;
-      // if (hoveredWardID != current) {
-      //   setHoveredWardID(current);
-      //   setHoveredRep(prop.REP_NAME);
-      //   setHoveredPop(prop.POP_2011_2015);
-      //   setHoveredIncome(prop.PER_CAPITA_INCOME);
-      //   setHoveredCases(prop.CASES);
-      // }
+      let prop = e.features[0].properties;
+      let current = prop.NAME;
+      if (hoveredNeigh != current) {
+        setHoveredNeigh(current);
+        setHoveredCasesNeigh(prop.POSITIVE_CASES);
+      }
       // setHoveredWardID(parseInt(e.features[0].properties.WARD));
       // console.log(parseInt(e.features[0].properties.WARD));
       if (map.getLayer('neighborhood-region-active')) {
@@ -341,13 +345,10 @@ const Map = () => {
 
     map.on('mouseleave', 'neighborhood-region', function () {
       // setHoveredWardID(5);
-      // if (hoveredWardID != null) {
-      //   setHoveredWardID(null);
-      //   setHoveredRep(null);
-      //   setHoveredPop(null);
-      //   setHoveredIncome(null);
-      //   setHoveredCases(null);
-      // }
+      if (hoveredNeigh != null) {
+        setHoveredNeigh(null);
+        setHoveredCasesNeigh(null);
+      }
       if (map.getLayer('neighborhood-region-active')) {
         map.setFilter('neighborhood-region-active', [
           '==',
@@ -380,6 +381,20 @@ const Map = () => {
           <div className="togglle">
             <Button onClick={onToggle}>Toggle Data</Button>
           </div>
+          <div className="toggllee">
+            <Button
+              onClick={() => {
+                mapObj.flyTo({
+                  center: [-77.0369, 38.9072],
+                  zoom: 11,
+                  pitch: 60,
+                });
+                setZoomed(true);
+              }}
+            >
+              Reset View
+            </Button>
+          </div>
           <Slide
             direction="right"
             in={isOpen}
@@ -403,21 +418,36 @@ const Map = () => {
                 <Text className="sidebarHeader" fontSize="2xl">
                   Data
                 </Text>
-                <Text className="sidebarHeader" fontSize="2xl">
-                  Current Ward : {hoveredWardID}
-                </Text>
-                <Text className="sidebarHeader" fontSize="2xl">
-                  Ward Representative: {hoveredRep}
-                </Text>
-                <Text className="sidebarHeader" fontSize="2xl">
-                  Population: {hoveredPop}
-                </Text>
-                <Text className="sidebarHeader" fontSize="2xl">
-                  Average Income: {hoveredIncome}
-                </Text>
-                <Text className="sidebarHeader" fontSize="2xl">
-                  COVID Cases: {hoveredCases}
-                </Text>
+                {!!zoomed ? (
+                  <>
+                    <Text className="sidebarHeader" fontSize="2xl">
+                      Current Ward : <mark>{hoveredWardID}</mark>
+                    </Text>
+                    <Text className="sidebarHeader" fontSize="2xl">
+                      Ward Representative:
+                      <mark>{hoveredRep}</mark>
+                    </Text>
+                    <Text className="sidebarHeader" fontSize="2xl">
+                      Population: <mark>{hoveredPop}</mark>
+                    </Text>
+                    <Text className="sidebarHeader" fontSize="2xl">
+                      Average Income:
+                      <mark>{hoveredIncome}</mark>
+                    </Text>
+                    <Text className="sidebarHeader" fontSize="2xl">
+                      COVID Cases: <mark>{hoveredCases}</mark>
+                    </Text>
+                  </>
+                ) : (
+                  <>
+                    <Text className="sidebarHeader" fontSize="2xl">
+                      Current Neighborhood : <mark>{hoveredNeigh}</mark>
+                    </Text>
+                    <Text className="sidebarHeader" fontSize="2xl">
+                      COVID Cases: <mark>{hoveredCasesNeigh}</mark>
+                    </Text>
+                  </>
+                )}
               </VStack>
             </Box>
           </Slide>
