@@ -10,7 +10,81 @@ mapboxgl.workerClass = MapboxWorker;
 mapboxgl.accessToken =
   'pk.eyJ1Ijoicm9iZXJ0YmFvIiwiYSI6ImNrbmJ4b2EyazB3a2kyb29vdmI4NnFhdHkifQ.eWUrs0-n2fF0u1XZhNbE4w';
 
-const Mapp = () => {
+/**
+ * Paint Constants
+ */
+
+// Neighborhood Region
+const neighborhoodRegionColor = [
+  'let',
+  'bruh',
+  ['/', ['get', 'TOTAL_POPULATION'], ['/', ['get', 'SHAPEAREA'], 100]],
+  [
+    'interpolate',
+    ['linear'],
+    ['zoom'],
+    8,
+    [
+      'interpolate',
+      ['linear'],
+      ['var', 'bruh'],
+      0,
+      ['to-color', '#edf8e9'],
+      1,
+      ['to-color', '#006d2c'],
+    ],
+    10,
+    [
+      'interpolate',
+      ['linear'],
+      ['var', 'bruh'],
+      0,
+      ['to-color', '#eff3ff'],
+      1,
+      ['to-color', '#08519c'],
+    ],
+  ],
+];
+// Centroids
+const centroidFillColor = [
+  'let',
+  'density',
+  ['get', 'AVERAGE_INCOME'],
+  [
+    'interpolate',
+    ['linear'],
+    ['var', 'density'],
+    0,
+    ['to-color', '#fa1100'],
+    100000,
+    ['to-color', '#00ffa2'],
+  ],
+];
+
+const centroidSize = [
+  'let',
+  'density',
+  ['/', ['get', 'POSITIVE_CASES'], ['get', 'TOTAL_POPULATION']],
+  ['interpolate', ['linear'], ['var', 'density'], 0, 5, 1, 250],
+];
+// Wards
+const wardRegionColor = [
+  'let',
+  'color',
+  ['get', 'CORRELATION_VALUE'],
+  [
+    'interpolate',
+    ['linear'],
+    ['var', 'color'],
+    -1,
+    ['to-color', '#dae600'],
+    1,
+    ['to-color', '#262b01'],
+  ],
+];
+const wardHeight = ['*', ['to-number', ['get', 'PER_CAPITA_INCOME']], 1];
+
+const Map = () => {
   const mapContainer = useRef();
   const [lng, setLng] = useState(-77.0369);
   const [lat, setLat] = useState(38.9072);
@@ -26,7 +100,7 @@ const Mapp = () => {
     console.log('hi');
     const map = new mapboxgl.Map({
       container: mapContainer.current,
-      style: 'mapbox://styles/mapbox/satellite-streets-v11',
+      style: 'mapbox://styles/mapbox/dark-v10',
       center: [lng, lat],
       zoom: zoom,
       antialias: true,
@@ -34,27 +108,31 @@ const Mapp = () => {
     });
 
     map.on('load', () => {
-      // skybox
+      /**
+       * Skybox
+       */
       map.addLayer({
         id: 'sky',
         type: 'sky',
         paint: {
           'sky-type': 'atmosphere',
           'sky-atmosphere-sun': [0.0, 90.0],
+          'sky-atmosphere-color': '#1a1a1aEF',
           'sky-atmosphere-sun-intensity': 15,
         },
       });
 
-      // circles
-      map.addSource('regions', {
+      /**
+       * Neighborhood Region
+       */
+      map.addSource('neighborhood', {
         type: 'geojson',
-        data: './health_neighborhoods1.geojson',
+        data: './geojson/health_neighborhoods1.geojson',
       });
-
       map.addLayer({
-        id: 'outline',
+        id: 'neighborhood-outline',
         type: 'line',
-        source: 'regions',
+        source: 'neighborhood',
         layout: {},
         paint: {
           'line-color': '#000',
@@ -62,166 +140,78 @@ const Mapp = () => {
         },
       });
       map.addLayer({
-        id: 'rwanda-shade',
+        id: 'neighborhood-region',
         type: 'fill',
-        source: 'regions',
+        source: 'neighborhood',
         layout: {},
         paint: {
-          'fill-color': [
-            'let',
-            'bruh',
-            [
-              '/',
-              ['get', 'TOTAL_POPULATION'],
-              ['/', ['get', 'SHAPEAREA'], 100],
-            ],
-            [
-              'interpolate',
-              ['linear'],
-              ['zoom'],
-              8,
-              [
-                'interpolate',
-                ['linear'],
-                ['var', 'bruh'],
-                0,
-                ['to-color', '#edf8e9'],
-                1,
-                ['to-color', '#006d2c'],
-              ],
-              10,
-              [
-                'interpolate',
-                ['linear'],
-                ['var', 'bruh'],
-                0,
-                ['to-color', '#eff3ff'],
-                1,
-                ['to-color', '#08519c'],
-              ],
-            ],
-          ],
+          'fill-color': neighborhoodRegionColor,
           'fill-opacity': 0.7,
         },
       });
 
-      // color = income
-      map.addSource('circle', {
+      /**
+       * Neighborhood Centroids
+       */
+      map.addSource('neighborhood-centroids', {
         type: 'geojson',
-        data: './centroids.geojson',
+        data: './geojson/centroids.geojson',
       });
-      // map.addLayer({
-      //   id: 'income',
-      //   type: 'circle',
-      //   source: 'circle',
-      //   filter: ['==', '$type', 'Point'],
-      //   paint: {
-      //     'circle-radius': 5,
-      //     'circle-color': '#fff',
-      //   },
-      // });
       map.addLayer({
         id: 'income',
         type: 'circle',
-        source: 'circle',
+        source: 'neighborhood-centroids',
         filter: ['==', '$type', 'Point'],
         paint: {
-          'circle-radius': [
-            'let',
-            'density',
-            ['/', ['get', 'POSITIVE_CASES'], ['get', 'TOTAL_POPULATION']],
-            [
-              'interpolate',
-              ['linear'],
-              ['zoom'],
-              8,
-              ['interpolate', ['linear'], ['var', 'density'], 0, 5, 1, 250],
-              10,
-              ['interpolate', ['linear'], ['var', 'density'], 0, 5, 1, 250],
-            ],
-          ],
-          'circle-color': [
-            'let',
-            'density',
-            ['get', 'AVERAGE_INCOME'],
-            [
-              'interpolate',
-              ['linear'],
-              ['zoom'],
-              8,
-              [
-                'interpolate',
-                ['linear'],
-                ['var', 'density'],
-                0,
-                ['to-color', '#fa1100'],
-                100000,
-                ['to-color', '#00ffa2'],
-              ],
-              10,
-              [
-                'interpolate',
-                ['linear'],
-                ['var', 'density'],
-                0,
-                ['to-color', '#fa1100'],
-                100000,
-                ['to-color', '#00ffa2'],
-              ],
-            ],
-          ],
+          'circle-radius': centroidSize,
+          'circle-color': centroidFillColor,
         },
       });
-      // size/height = cases per capita
+
+      /**
+       * Ward Regions
+       */
+      map.addSource('ward', {
+        type: 'geojson',
+        data: './geojson/wards.geojson',
+      });
+      map.addLayer({
+        id: 'ward-outline',
+        type: 'line',
+        source: 'ward',
+        layout: {},
+        paint: {
+          'line-color': '#fff',
+          'line-width': 8,
+        },
+      });
+      map.addLayer({
+        id: 'ward-region',
+        type: 'fill',
+        source: 'ward',
+        layout: {},
+        paint: {
+          'fill-color': wardRegionColor,
+          'fill-opacity': 0.3,
+        },
+      });
+      map.addLayer({
+        id: 'ward-extrusion',
+        type: 'fill-extrusion',
+        source: 'ward',
+        paint: {
+          'fill-extrusion-color': wardRegionColor,
+          'fill-extrusion-height': wardHeight,
+          'fill-extrusion-opacity': 0.7,
+        },
+      });
 
       // vaccination data
 
       ///////
     });
     setMapObj(map);
-    // map.on('sourcedataloading', function () {
-    //   // loader visible
-    // });
-    // map.on('sourcedata', function (e) {
-    //   // loader not visible
-    //   setLoading(false);
-    // });
-    // map.on('load', function () {
-    //   map.addSource('route', {
-    //     type: 'geojson',
-    //     data: './fiveyearcrashes.geojson',
-    //   });
 
-    //   map.addSource('kmeans', {
-    //     type: 'geojson',
-    //     data: './centroids.geojson',
-    //   });
-
-    //   map.addLayer({
-    //     id: 'kk',
-    //     type: 'circle',
-    //     source: 'kmeans',
-    //     paint: {
-    //       'circle-radius': 35,
-    //       'circle-color': 'orange',
-    //     },
-    //   });
-    // });
-    // map.on('click', '0', function (e) {
-    //   console.log(e);
-    //   console.log('help');
-    //   var coordinates = e.features[0].geometry.coordinates.slice();
-    //   // var description = e.features[0].properties.description;
-
-    //   // Ensure that if the map is zoomed out such that multiple
-    //   // copies of the feature are visible, the popup appears
-    //   // over the copy being pointed to.
-    //   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-    //     coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-    //   }
-    //   console.log(coordinates);
-    //   new mapboxgl.Popup().setLngLat(coordinates).setHTML('bruh').addTo(map);
-    // });
     map.on('move', () => {
       setLng(map.getCenter().lng.toFixed(4));
       setLat(map.getCenter().lat.toFixed(4));
@@ -235,13 +225,13 @@ const Mapp = () => {
     <div>
       {!!false ? <CircularProgress isIndeterminate color="green.300" /> : <></>}
       <>
-        <div className="sidebar">
+        {/* <div className="sidebar">
           Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
-        </div>
+        </div> */}
         <div className="map-container" ref={mapContainer} />
       </>
     </div>
   );
 };
 
-export default Mapp;
+export default Map;
