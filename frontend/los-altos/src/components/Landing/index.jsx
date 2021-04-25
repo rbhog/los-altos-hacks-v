@@ -20,8 +20,8 @@ const Landing = () => {
                         <Text className="title" fontSize="7xl">
                           from<pre><Typewriter options={{ strings: [" dc", " philly", " chicago", " la", " seattle"], autoStart: true, loop: true }} /></pre>import pandemic 
                         </Text>
-                        <Text className="description" fontSize="xl" maxWidth="60%">
-                            visualizing income disparities and their corresponding effects on populations during the COVID-19 pandemic
+                        <Text className="description" fontSize="xl" maxWidth="40%">
+                            visualizing income disparities and their corresponding effects on populations during the COVID-19 pandemic, to develop an efficient, timely vaccination schedule for local governments
                         </Text>
                     </VStack>
                 </Box>
