@@ -50,19 +50,10 @@ var vaccinated = [
     16.89, 0.0
 ]
 
-// axios.get(base_tests).then((res) => {
-//     res.data.features.forEach(point => {
-//         if (!codes.includes(point.properties["NEIGHBORHOOD"])) {
-//             codes.push(point.properties["NEIGHBORHOOD"])
-//         }
-//         master.points.push(point.properties)
-//     })
-//     console.log(codes)
-//     fs.writeFileSync(path.join(outputPath, "total_tests.json"), JSON.stringify(master))
-// })
-
-
-       
+var centroids = {
+    type: "FeatureCollection",
+    features: []
+}
 
 axios.get(base_cases).then((res) => {
     cases = res.data
@@ -154,9 +145,13 @@ axios.get(base_cases).then((res) => {
         feature.properties["AVERAGE_INCOME"] = averageIncome
         feature.properties["TOTAL_POPULATION"] = totalPopulation
         feature.properties["RELATIVE_VACCINATED"] = vaccinated[index]
+
+        center.properties = feature.properties
+        centroids.features.push(center)
         
         master.features.push(feature)
     })
 
     fs.writeFileSync(path.join(outputPath, "health_neighborhoods1.geojson"), JSON.stringify(master))
+    fs.writeFileSync(path.join(outputPath, "centroids.geojson"), JSON.stringify(centroids))
 })

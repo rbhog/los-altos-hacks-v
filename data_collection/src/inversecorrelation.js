@@ -44,7 +44,7 @@ hoodsinward.forEach(ward =>{
     var correlation=calculateCorrelation(incomes,cases)
     correlations.push({key:ward,value:correlation})
     console.log(correlation)
-    fs.writeFileSync(path.join(outputPath,"wardcorrelations.geojson"), JSON.stringify(correlations))
+    // fs.writeFileSync(path.join(outputPath,"wardcorrelations.geojson"), JSON.stringify(correlations))
 }   
 )
 
