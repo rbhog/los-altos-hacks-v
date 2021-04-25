@@ -6,9 +6,16 @@
 .title {
     font-family: 'Inter', sans-serif;
     background-image: linear-gradient(45deg, #3860C0, #C36DA1);
+    font-weight: 500;
     background-clip: text;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent; 
     -moz-text-fill-color: transparent;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.description {
+  font-family: 'Work Sans', sans-serif;
 }
