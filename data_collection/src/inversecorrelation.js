@@ -12,9 +12,11 @@ axios.get(warddata).then((res)=>{
 
 
 
-var correlations = {}
+var correlations = []
+var correlationArray = []
 var hoodsinward = JSON.parse(fs.readFileSync('./hoodsinward.json', 'utf8'));
 var health_neighborhoods1=JSON.parse(fs.readFileSync(path.join(__dirname, "../data/health_neighborhoods1.geojson"), 'utf8'));
+var i = 0;
 hoodsinward.forEach(ward =>{
     //make list of incomes of neighborhood in ward
     var incomes=[]
@@ -43,13 +45,19 @@ hoodsinward.forEach(ward =>{
     //calculate correlation for ward, add to correlations
     var correlation=calculateCorrelation(incomes,cases)
     correlations.push({key:ward,value:correlation})
+    correlationArray.push(correlation)
     console.log(correlation)
     // fs.writeFileSync(path.join(outputPath,"wardcorrelations.geojson"), JSON.stringify(correlations))
-}   
-)
+})
 
 axios.get("https://opendata.arcgis.com/datasets/0ef47379cbae44e88267c01eaec2ff6e_31.geojson").then((res) => {
-    fs.writeFileSync(path.join(outputPath, "wards.geojson"), JSON.stringify(res.data))
+    var collection = res.data
+    collection.features.forEach(feature => {
+        var index = parseInt(feature.properties["WARD"]) - 1
+        feature.properties["CORRELATION_VALUE"] = correlationArray[index]
+    })
+
+    fs.writeFileSync(path.join(outputPath, "wards.geojson"), JSON.stringify(collection))
 })
 
     
