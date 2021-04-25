@@ -1,4 +1,4 @@
-import { Slide, Box, useDisclosure, Button } from '@chakra-ui/react';
+import { Slide, Box, useDisclosure, Button, Text, HStack, VStack } from '@chakra-ui/react';
 import './styles.css';
 
 /**
@@ -22,8 +22,15 @@ const Drawer = () => {
           rounded="md"
           shadow="md"
         >
-          bruh
+          {/* <HStack>
+            <VStack>
+              
+            </VStack>
+          </HStack> */}
+          <Text>Least Vaccinated Neighborhoods</Text>
+          <Text>N16 DOUGLASS - 6.87%</Text>
         </Box>
+        
       </Slide>
     </>
   );

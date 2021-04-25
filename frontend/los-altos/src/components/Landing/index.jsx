@@ -17,7 +17,7 @@ const Landing = () => {
             <Center h="85%">
                 <Box className="feature">
                     <VStack spacing={5} >
-                        <Text className="title" fontSize="7xl">
+                        <Text className="title" fontSize="7xl" bgGradient="linear(to-r, #3860C0, #C36DA1)" bgClip="text">
                           from<pre><Typewriter options={{ strings: [" dc", " philly", " chicago", " la", " seattle"], autoStart: true, loop: true }} /></pre>import pandemic 
                         </Text>
                         <Text className="description" fontSize="xl" maxWidth="40%">

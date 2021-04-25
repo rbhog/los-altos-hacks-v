@@ -11,3 +11,17 @@
   margin: 12px;
   border-radius: 4px;
 }
+
+.sidebarWrapper {
+  font-family: 'Work Sans', sans-serif;
+}
+
+.sidebarHeader {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+}
+
+.incomeRect {
+  margin-top: auto;
+}
+
