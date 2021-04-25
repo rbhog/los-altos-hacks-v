@@ -88,9 +88,9 @@ axios.get(base_cases).then((res) => {
                 tractsInArea.push(tract.properties["GEOID"])
             }
         })
-        var center=turf.centroid(geometry)
-        feature.properties["CENTER"]=center
-
+        var center=turf.centroid(feature.geometry)
+        feature.properties["CENTER"]=center.geometry.coordinates
+        // console.log(center)
         var validIncome = []
         tractsInArea.forEach(geoid => { // get the census data for each of the tracts
             validIncome = validIncome.concat(census.features.filter(census_feature => census_feature.properties["GEOID"] === geoid))
