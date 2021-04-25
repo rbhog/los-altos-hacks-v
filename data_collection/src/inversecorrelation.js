@@ -5,12 +5,16 @@ const path = require('path');
 const calculateCorrelation = require("calculate-correlation");
 const warddata="https://opendata.arcgis.com/datasets/0ef47379cbae44e88267c01eaec2ff6e_31.geojson"
 const outputPath = path.join(__dirname, "../data")
+const turf=require("turf")
 
 axios.get(warddata).then((res)=>{
     warddata.forEach
 })
 
-
+var centroids = {
+    type: "FeatureCollection",
+    features: []
+}
 
 var correlations = []
 var correlationArray = []
@@ -55,6 +59,8 @@ axios.get("https://opendata.arcgis.com/datasets/0ef47379cbae44e88267c01eaec2ff6e
     collection.features.forEach(feature => {
         var index = parseInt(feature.properties["WARD"]) - 1
         feature.properties["CORRELATION_VALUE"] = correlationArray[index]
+        var center=turf.centroid(feature.geometry)
+        feature.properties["CENTER"]=center.geometry.coordinates
     })
 
     fs.writeFileSync(path.join(outputPath, "wards.geojson"), JSON.stringify(collection))
