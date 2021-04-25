@@ -1,7 +1,7 @@
 const axios = require("axios")
 const fs = require("fs-extra")
 const path = require("path")
-
+const turf=require("turf")
 // const base = "https://opendata.arcgis.com/datasets/271e8b7972ce46f99ce3eb7eb100fe37_47.geojson"
 
 const base_tests = "https://opendata.arcgis.com/datasets/f4c31910102448ffa57c5506ea1d4de4_29.geojson"
@@ -50,19 +50,10 @@ var vaccinated = [
     16.89, 0.0
 ]
 
-// axios.get(base_tests).then((res) => {
-//     res.data.features.forEach(point => {
-//         if (!codes.includes(point.properties["NEIGHBORHOOD"])) {
-//             codes.push(point.properties["NEIGHBORHOOD"])
-//         }
-//         master.points.push(point.properties)
-//     })
-//     console.log(codes)
-//     fs.writeFileSync(path.join(outputPath, "total_tests.json"), JSON.stringify(master))
-// })
-
-
-       
+var centroids = {
+    type: "FeatureCollection",
+    features: []
+}
 
 axios.get(base_cases).then((res) => {
     cases = res.data
@@ -88,7 +79,9 @@ axios.get(base_cases).then((res) => {
                 tractsInArea.push(tract.properties["GEOID"])
             }
         })
-
+        var center=turf.centroid(feature.geometry)
+        feature.properties["CENTER"]=center.geometry.coordinates
+        // console.log(center)
         var validIncome = []
         tractsInArea.forEach(geoid => { // get the census data for each of the tracts
             validIncome = validIncome.concat(census.features.filter(census_feature => census_feature.properties["GEOID"] === geoid))
@@ -152,9 +145,13 @@ axios.get(base_cases).then((res) => {
         feature.properties["AVERAGE_INCOME"] = averageIncome
         feature.properties["TOTAL_POPULATION"] = totalPopulation
         feature.properties["RELATIVE_VACCINATED"] = vaccinated[index]
+
+        center.properties = feature.properties
+        centroids.features.push(center)
         
         master.features.push(feature)
     })
 
     fs.writeFileSync(path.join(outputPath, "health_neighborhoods1.geojson"), JSON.stringify(master))
+    fs.writeFileSync(path.join(outputPath, "centroids.geojson"), JSON.stringify(centroids))
 })
