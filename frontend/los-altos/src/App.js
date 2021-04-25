@@ -11,7 +11,7 @@ import {
 } from '@chakra-ui/react';
 
 import Content from './components/Content';
-import Landing from './components/Landing/Landing';
+import Landing from './components/Landing';
 
 function App() {
   return (
