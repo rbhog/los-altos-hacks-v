@@ -26,15 +26,13 @@ const Mapp = () => {
     console.log('hi');
     const map = new mapboxgl.Map({
       container: mapContainer.current,
-      style: 'mapbox://styles/mapbox/dark-v10',
+      style: 'mapbox://styles/mapbox/satellite-streets-v11',
       center: [lng, lat],
       zoom: zoom,
       antialias: true,
       pitch: 60,
     });
-    
-    
-    
+
     map.on('load', () => {
       // map.addSource('mapbox-dem', {
       //   type: 'raster-dem',
@@ -43,7 +41,7 @@ const Mapp = () => {
       //   maxZoom: 16,
       // });
       // map.setTerrain({ source: 'mapbox-dem', exaggeration: 1.5 });
-      
+
       // skybox
       map.addLayer({
         id: 'sky',
@@ -54,7 +52,7 @@ const Mapp = () => {
           'sky-atmosphere-sun-intensity': 15,
         },
       });
-      
+
       // test 3d
       map.addSource('floorplan', {
         // GeoJSON Data source used in vector tiles, documented at
@@ -84,16 +82,82 @@ const Mapp = () => {
           'fill-extrusion-opacity': 0.5,
         },
       });
-      
-      // circles 
-      
+
+      // circles
+      map.addSource('circles', {
+        type: 'geojson',
+        data: './health_neighborhoods1.geojson',
+      });
+      // map.addLayer({
+      //   id: 'park-boundary',
+      //   type: 'fill',
+      //   source: 'circles',
+      //   paint: {
+      //     'fill-color': '#888888',
+      //     'fill-opacity': 0.8,
+      //   },
+      //   filter: ['==', '$type', 'Polygon'],
+      // });
+      map.addLayer({
+        id: 'outline',
+        type: 'line',
+        source: 'circles',
+        layout: {},
+        paint: {
+          'line-color': '#000',
+          'line-width': 8,
+        },
+      });
+      map.addLayer({
+        id: 'rwanda-shade',
+        type: 'fill',
+        source: 'circles',
+        layout: {},
+        paint: {
+          'fill-color': [
+            'let',
+            'density',
+            [
+              '/',
+              ['get', 'TOTAL_POPULATION'],
+              ['/', ['get', 'SHAPEAREA'], 100],
+            ],
+            [
+              'interpolate',
+              ['linear'],
+              ['zoom'],
+              8,
+              [
+                'interpolate',
+                ['linear'],
+                ['var', 'density'],
+                0,
+                ['to-color', '#edf8e9'],
+                1,
+                ['to-color', '#006d2c'],
+              ],
+              10,
+              [
+                'interpolate',
+                ['linear'],
+                ['var', 'density'],
+                0,
+                ['to-color', '#eff3ff'],
+                1,
+                ['to-color', '#08519c'],
+              ],
+            ],
+          ],
+          'fill-opacity': 0.7,
+        },
+      });
+
       // color = income
-      
+
       // size/height = cases per capita
-      
+
       // vaccination data
-    
-      
+
       ///////
     });
     setMapObj(map);
