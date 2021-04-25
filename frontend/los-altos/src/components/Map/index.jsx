@@ -89,7 +89,7 @@ const wardRegionColor = [
     ['linear'],
     ['var', 'color'],
     -1,
-    ['to-color', '#dae600'],
+    ['to-color', '#f00ec6'],
     1,
     ['to-color', '#262b01'],
   ],
@@ -183,6 +183,16 @@ const Map = () => {
           'fill-opacity': 0.7,
         },
       });
+      map.addLayer({
+        id: 'neighborhood-region-active',
+        type: 'fill',
+        source: 'neighborhood',
+        layout: {},
+        paint: {
+          'fill-color': '#3cc',
+          'fill-opacity': 0.9,
+        },
+      });
 
       /**
        * Neighborhood Centroids
@@ -269,9 +279,6 @@ const Map = () => {
     });
 
     map.on('mousemove', 'ward-extrusion', function (e) {
-      if (e.features.length > 0) {
-        // setHoveredWardID(e.features[0].properties.WARD.toString());
-      }
       let prop = e.features[0].properties;
       let current = prop.WARD;
       if (hoveredWardID != current) {
@@ -306,6 +313,46 @@ const Map = () => {
           '==',
           -1,
           ['to-number', ['get', 'WARD']],
+        ]);
+      }
+    });
+
+    map.on('mousemove', 'neighborhood-region', function (e) {
+      // let prop = e.features[0].properties;
+      // let current = prop.WARD;
+      // if (hoveredWardID != current) {
+      //   setHoveredWardID(current);
+      //   setHoveredRep(prop.REP_NAME);
+      //   setHoveredPop(prop.POP_2011_2015);
+      //   setHoveredIncome(prop.PER_CAPITA_INCOME);
+      //   setHoveredCases(prop.CASES);
+      // }
+      // setHoveredWardID(parseInt(e.features[0].properties.WARD));
+      // console.log(parseInt(e.features[0].properties.WARD));
+      if (map.getLayer('neighborhood-region-active')) {
+        map.setFilter('neighborhood-region-active', [
+          '==',
+          e.features[0].properties.CODE,
+          ['get', 'CODE'],
+        ]);
+      }
+      console.log('er');
+    });
+
+    map.on('mouseleave', 'neighborhood-region', function () {
+      // setHoveredWardID(5);
+      // if (hoveredWardID != null) {
+      //   setHoveredWardID(null);
+      //   setHoveredRep(null);
+      //   setHoveredPop(null);
+      //   setHoveredIncome(null);
+      //   setHoveredCases(null);
+      // }
+      if (map.getLayer('neighborhood-region-active')) {
+        map.setFilter('neighborhood-region-active', [
+          '==',
+          '-1',
+          ['get', 'CODE'],
         ]);
       }
     });
