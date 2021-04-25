@@ -4,7 +4,7 @@ const Landing = () => {
 
   return (
     <>
-      <Box w="100%" h="1080px" bg="grey">
+      <Box w="100%" h="1080px" bgImage="url('./img/mapbox_dark.jpg')" className="bgImage">
             hello!
       </Box>
     </>
