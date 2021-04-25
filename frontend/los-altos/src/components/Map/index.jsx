@@ -82,7 +82,22 @@ const wardRegionColor = [
     ['to-color', '#262b01'],
   ],
 ];
-const wardHeight = ['*', ['to-number', ['get', 'PER_CAPITA_INCOME']], 1];
+const wardRegionActiveColor = [
+  'let',
+  'color',
+  ['get', 'CORRELATION_VALUE'],
+  ['interpolate', ['linear'], ['var', 'color'], 0, 0, 1, 1],
+];
+const wardHeight = ['*', ['to-number', ['get', 'PER_CAPITA_INCOME']], 0.1];
+const wardExtrusionOpacity = [
+  'interpolate',
+  ['exponential', 0.5],
+  ['zoom'],
+  12,
+  0.95,
+  13,
+  0,
+];
 
 const Map = () => {
   const mapContainer = useRef();
@@ -91,6 +106,7 @@ const Map = () => {
   const [zoom, setZoom] = useState(11);
   const [snapshot, setSnapshot] = useState({});
   const [mapObj, setMapObj] = useState();
+  const [hoveredWardID, setHoveredWardID] = useState(3);
 
   // listener for update
   useEffect(() => {});
@@ -185,16 +201,16 @@ const Map = () => {
           'line-width': 8,
         },
       });
-      map.addLayer({
-        id: 'ward-region',
-        type: 'fill',
-        source: 'ward',
-        layout: {},
-        paint: {
-          'fill-color': wardRegionColor,
-          'fill-opacity': 0.3,
-        },
-      });
+      // map.addLayer({
+      //   id: 'ward-region',
+      //   type: 'fill',
+      //   source: 'ward',
+      //   layout: {},
+      //   paint: {
+      //     'fill-color': wardRegionColor,
+      //     'fill-opacity': 0.3,
+      //   },
+      // });
       map.addLayer({
         id: 'ward-extrusion',
         type: 'fill-extrusion',
@@ -202,14 +218,64 @@ const Map = () => {
         paint: {
           'fill-extrusion-color': wardRegionColor,
           'fill-extrusion-height': wardHeight,
-          'fill-extrusion-opacity': 0.7,
+          'fill-extrusion-opacity': wardExtrusionOpacity,
         },
       });
-
+      map.addLayer({
+        id: 'ward-extrusion-active',
+        type: 'fill-extrusion',
+        source: 'ward',
+        paint: {
+          'fill-extrusion-color': '#3cc',
+          // 'fill-extrusion-color': wardRegionActiveColor,
+          'fill-extrusion-height': wardHeight,
+          'fill-extrusion-opacity': wardExtrusionOpacity,
+        },
+      });
       // vaccination data
-
+      // ['interpolate', ['exponential', 0.5], ['zoom'], 12, 0.95, 13, 0];
       ///////
     });
+
+    map.on('click', 'ward-extrusion', e => {
+      console.log([
+        e.features[0].properties.CENTER[0],
+        e.features[0].properties.CENTER[1],
+      ]);
+      console.log('extrusion clicked!');
+      map.flyTo({
+        center: eval(e.features[0].properties.CENTER),
+        pitch: 0,
+        zoom: 13,
+      });
+    });
+
+    map.on('mousemove', 'ward-extrusion', function (e) {
+      if (e.features.length > 0) {
+        // setHoveredWardID(e.features[0].properties.WARD.toString());
+      }
+      // setHoveredWardID(parseInt(e.features[0].properties.WARD));
+      // console.log(parseInt(e.features[0].properties.WARD));
+      if (map.getLayer('ward-extrusion-active')) {
+        map.setFilter('ward-extrusion-active', [
+          '==',
+          parseInt(e.features[0].properties.WARD),
+          ['to-number', ['get', 'WARD']],
+        ]);
+      }
+    });
+
+    map.on('mouseleave', 'ward-extrusion', function () {
+      // setHoveredWardID(5);
+      if (map.getLayer('ward-extrusion-active')) {
+        map.setFilter('ward-extrusion-active', [
+          '==',
+          -1,
+          ['to-number', ['get', 'WARD']],
+        ]);
+      }
+    });
+
     setMapObj(map);
 
     map.on('move', () => {
