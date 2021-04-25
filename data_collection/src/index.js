@@ -1,7 +1,7 @@
 const axios = require("axios")
 const fs = require("fs-extra")
 const path = require("path")
-
+const turf=require("turf")
 // const base = "https://opendata.arcgis.com/datasets/271e8b7972ce46f99ce3eb7eb100fe37_47.geojson"
 
 const base_tests = "https://opendata.arcgis.com/datasets/f4c31910102448ffa57c5506ea1d4de4_29.geojson"
@@ -88,6 +88,8 @@ axios.get(base_cases).then((res) => {
                 tractsInArea.push(tract.properties["GEOID"])
             }
         })
+        var center=turf.centroid(geometry)
+        feature.properties["CENTER"]=center
 
         var validIncome = []
         tractsInArea.forEach(geoid => { // get the census data for each of the tracts
