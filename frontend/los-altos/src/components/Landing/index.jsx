@@ -1,4 +1,5 @@
 import { Center, Box, Button, Text, VStack } from '@chakra-ui/react';
+import Typewriter from 'typewriter-effect';
 import './landing-style.css';
 import { FaChevronDown } from 'react-icons/fa'
 const Landing = () => {
@@ -17,7 +18,7 @@ const Landing = () => {
                 <Box className="feature">
                     <VStack spacing={5} >
                         <Text className="title" fontSize="7xl">
-                            Project Title Here
+                          from<pre><Typewriter options={{ strings: [" DC", " Philly", " Chicago", " LA"], autoStart: true, loop: true }} /></pre>import pandemic 
                         </Text>
                         <Text className="description" fontSize="xl">
                             More descriptions and funny shit here
