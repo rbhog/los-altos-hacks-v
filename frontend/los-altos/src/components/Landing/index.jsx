@@ -2,7 +2,13 @@ import { Center, Box, Button, Text, VStack } from '@chakra-ui/react';
 import './landing-style.css';
 import { FaChevronDown } from 'react-icons/fa'
 const Landing = () => {
-
+  let handleScroll = () => {
+    window.scroll({
+      top: document.body.offsetHeight,
+      left: 0,
+      behavior: "smooth"
+    })
+  }
   return (
     <>
       <Box w="100%" h="1080px" bgImage="url('./img/mapbox_dark.jpg')">
@@ -21,7 +27,7 @@ const Landing = () => {
             </Center>
             
 
-            <Button className="scrollButton" variant="ghost"><FaChevronDown size={40} /></Button>
+            <Button className="scrollButton" variant="ghost"><FaChevronDown size={40} onClick={handleScroll} /></Button>
         </div>
         
       </Box>
