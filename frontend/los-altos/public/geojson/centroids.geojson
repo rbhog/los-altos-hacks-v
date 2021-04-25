@@ -1,0 +1,987 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 5,
+        "DC_HPN_NAME": "BLOOMINGDALE",
+        "CODE": "N5",
+        "NAME": "N5 BLOOMINGDALE",
+        "SHAPEAREA": 2047061.0081139,
+        "SHAPELEN": 7708.151042551221,
+        "CENTER": [-77.00960572445301, 38.91768963874487],
+        "POSITIVE_CASES": 884,
+        "AVERAGE_INCOME": 51693.3,
+        "TOTAL_POPULATION": 14980,
+        "RELATIVE_VACCINATED": 18.78
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.00960572445301, 38.91768963874487]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 6,
+        "DC_HPN_NAME": "BRENTWOOD",
+        "CODE": "N6",
+        "NAME": "N6 BRENTWOOD",
+        "SHAPEAREA": 3331104.4834579,
+        "SHAPELEN": 8238.196483778751,
+        "CENTER": [-76.98645474299035, 38.92434627679351],
+        "POSITIVE_CASES": 805,
+        "AVERAGE_INCOME": 43294.333333333336,
+        "TOTAL_POPULATION": 9765,
+        "RELATIVE_VACCINATED": 18.6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.98645474299035, 38.92434627679351]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 7,
+        "DC_HPN_NAME": "BRIGHTWOOD",
+        "CODE": "N7",
+        "NAME": "N7 BRIGHTWOOD",
+        "SHAPEAREA": 3477703.54867329,
+        "SHAPELEN": 11471.7676456238,
+        "CENTER": [-77.03703272167506, 38.96807739331125],
+        "POSITIVE_CASES": 1624,
+        "AVERAGE_INCOME": 39492.75,
+        "TOTAL_POPULATION": 17868,
+        "RELATIVE_VACCINATED": 14.42
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.03703272167506, 38.96807739331125]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 8,
+        "DC_HPN_NAME": "BRIGHTWOOD PARK",
+        "CODE": "N8",
+        "NAME": "N8 BRIGHTWOOD PARK",
+        "SHAPEAREA": 1327384.03937381,
+        "SHAPELEN": 5257.30828942282,
+        "CENTER": [-77.01800423364264, 38.95629312437535],
+        "POSITIVE_CASES": 1058,
+        "AVERAGE_INCOME": 34345.5,
+        "TOTAL_POPULATION": 10273,
+        "RELATIVE_VACCINATED": 15.59
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.01800423364264, 38.95629312437535]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 9,
+        "DC_HPN_NAME": "CAPITOL HILL",
+        "CODE": "N9",
+        "NAME": "N9 CAPITOL HILL",
+        "SHAPEAREA": 1979928.22756376,
+        "SHAPELEN": 8760.41316483104,
+        "CENTER": [-76.99801492028779, 38.88645924931585],
+        "POSITIVE_CASES": 560,
+        "AVERAGE_INCOME": 89506.7,
+        "TOTAL_POPULATION": 15135,
+        "RELATIVE_VACCINATED": 17.74
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.99801492028779, 38.88645924931585]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 10,
+        "DC_HPN_NAME": "CATHEDRAL HEIGHTS",
+        "CODE": "N10",
+        "NAME": "N10 CATHEDRAL HEIGHTS",
+        "SHAPEAREA": 2745380.89715981,
+        "SHAPELEN": 9159.975779661841,
+        "CENTER": [-77.07661645806581, 38.92933173947819],
+        "POSITIVE_CASES": 574,
+        "AVERAGE_INCOME": 70430.875,
+        "TOTAL_POPULATION": 19081,
+        "RELATIVE_VACCINATED": 18.62
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.07661645806581, 38.92933173947819]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 11,
+        "DC_HPN_NAME": "CHEVY CHASE",
+        "CODE": "N11",
+        "NAME": "N11 CHEVY CHASE",
+        "SHAPEAREA": 1683332.46430665,
+        "SHAPELEN": 6382.72675419484,
+        "CENTER": [-77.06410036627047, 38.96052387824943],
+        "POSITIVE_CASES": 242,
+        "AVERAGE_INCOME": 109820.25,
+        "TOTAL_POPULATION": 6991,
+        "RELATIVE_VACCINATED": 22.54
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.06410036627047, 38.96052387824943]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 12,
+        "DC_HPN_NAME": "CHINATOWN",
+        "CODE": "N12",
+        "NAME": "N12 CHINATOWN",
+        "SHAPEAREA": 3070123.8415641,
+        "SHAPELEN": 8717.73561368305,
+        "CENTER": [-77.02296875870786, 38.90150625916919],
+        "POSITIVE_CASES": 1649,
+        "AVERAGE_INCOME": 64031.916666666664,
+        "TOTAL_POPULATION": 20482,
+        "RELATIVE_VACCINATED": 16.31
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.02296875870786, 38.90150625916919]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 13,
+        "DC_HPN_NAME": "COLUMBIA HEIGHTS",
+        "CODE": "N13",
+        "NAME": "N13 COLUMBIA HEIGHTS",
+        "SHAPEAREA": 1655078.93284091,
+        "SHAPELEN": 5656.91831488998,
+        "CENTER": [-77.02586073740824, 38.931624374718794],
+        "POSITIVE_CASES": 2311,
+        "AVERAGE_INCOME": 37625.75,
+        "TOTAL_POPULATION": 26361,
+        "RELATIVE_VACCINATED": 13.63
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.02586073740824, 38.931624374718794]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 14,
+        "DC_HPN_NAME": "CONGRESS HEIGHTS/SHIPLEY",
+        "CODE": "N14",
+        "NAME": "N14 CONGRESS HEIGHTS/SHIPLEY",
+        "SHAPEAREA": 2301284.6517976,
+        "SHAPELEN": 8531.06955110685,
+        "CENTER": [-76.99049366343297, 38.838674305950455],
+        "POSITIVE_CASES": 1023,
+        "AVERAGE_INCOME": 26354.5,
+        "TOTAL_POPULATION": 9977,
+        "RELATIVE_VACCINATED": 11.08
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.99049366343297, 38.838674305950455]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 15,
+        "DC_HPN_NAME": "DC MEDICAL CENTER",
+        "CODE": "N15",
+        "NAME": "N15 DC MEDICAL CENTER",
+        "SHAPEAREA": 2015325.63399697,
+        "SHAPELEN": 5875.93662611976,
+        "CENTER": [-77.01180039400295, 38.9346366674199],
+        "POSITIVE_CASES": 159,
+        "AVERAGE_INCOME": 44461,
+        "TOTAL_POPULATION": 1670,
+        "RELATIVE_VACCINATED": 14.02
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.01180039400295, 38.9346366674199]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 16,
+        "DC_HPN_NAME": "DOUGLASS",
+        "CODE": "N16",
+        "NAME": "N16 DOUGLASS",
+        "SHAPEAREA": 1541049.82375947,
+        "SHAPELEN": 6844.98447611333,
+        "CENTER": [-76.9766267235351, 38.845855559031016],
+        "POSITIVE_CASES": 931,
+        "AVERAGE_INCOME": 24226.5,
+        "TOTAL_POPULATION": 11129,
+        "RELATIVE_VACCINATED": 6.87
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.9766267235351, 38.845855559031016]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 17,
+        "DC_HPN_NAME": "EASTLAND GARDENS",
+        "CODE": "N17",
+        "NAME": "N17 EASTLAND GARDENS",
+        "SHAPEAREA": 4443238.00648087,
+        "SHAPELEN": 10413.877103889601,
+        "CENTER": [-76.94134308430748, 38.90015758040062],
+        "POSITIVE_CASES": 925,
+        "AVERAGE_INCOME": 27361.833333333332,
+        "TOTAL_POPULATION": 10448,
+        "RELATIVE_VACCINATED": 10.68
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.94134308430748, 38.90015758040062]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 18,
+        "DC_HPN_NAME": "EDGEWOOD",
+        "CODE": "N18",
+        "NAME": "N18 EDGEWOOD",
+        "SHAPEAREA": 1413458.79699164,
+        "SHAPELEN": 7368.6275432456,
+        "CENTER": [-77.00204178310851, 38.92350167940966],
+        "POSITIVE_CASES": 859,
+        "AVERAGE_INCOME": 43449,
+        "TOTAL_POPULATION": 8912,
+        "RELATIVE_VACCINATED": 15.18
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.00204178310851, 38.92350167940966]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 19,
+        "DC_HPN_NAME": "FOREST HILLS",
+        "CODE": "N19",
+        "NAME": "N19 FOREST HILLS",
+        "SHAPEAREA": 4490328.00527201,
+        "SHAPELEN": 11311.5113142832,
+        "CENTER": [-77.0541428879243, 38.95113498057125],
+        "POSITIVE_CASES": 330,
+        "AVERAGE_INCOME": 75736.5,
+        "TOTAL_POPULATION": 11756,
+        "RELATIVE_VACCINATED": 20.31
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0541428879243, 38.95113498057125]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 1,
+        "DC_HPN_NAME": "16th ST HEIGHTS",
+        "CODE": "N1",
+        "NAME": "N1 16th ST HEIGHTS",
+        "SHAPEAREA": 4805318.1580536,
+        "SHAPELEN": 11504.2963613035,
+        "CENTER": [-77.04000934984244, 38.94458547114346],
+        "POSITIVE_CASES": 1724,
+        "AVERAGE_INCOME": 45693.1,
+        "TOTAL_POPULATION": 20131,
+        "RELATIVE_VACCINATED": 16.89
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.04000934984244, 38.94458547114346]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 2,
+        "DC_HPN_NAME": "ADAMS MORGAN",
+        "CODE": "N2",
+        "NAME": "N2 ADAMS MORGAN",
+        "SHAPEAREA": 1626895.07928889,
+        "SHAPELEN": 6029.68226654073,
+        "CENTER": [-77.04292899648632, 38.921006103561574],
+        "POSITIVE_CASES": 945,
+        "AVERAGE_INCOME": 70326,
+        "TOTAL_POPULATION": 23753,
+        "RELATIVE_VACCINATED": 16.98
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.04292899648632, 38.921006103561574]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 3,
+        "DC_HPN_NAME": "BARNABY WOODS",
+        "CODE": "N3",
+        "NAME": "N3 BARNABY WOODS",
+        "SHAPEAREA": 4698271.79966444,
+        "SHAPELEN": 10627.652950518699,
+        "CENTER": [-77.04547608140197, 38.97269310644805],
+        "POSITIVE_CASES": 183,
+        "AVERAGE_INCOME": 165589,
+        "TOTAL_POPULATION": 6186,
+        "RELATIVE_VACCINATED": 29.67
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.04547608140197, 38.97269310644805]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 4,
+        "DC_HPN_NAME": "BELLEVUE",
+        "CODE": "N4",
+        "NAME": "N4 BELLEVUE",
+        "SHAPEAREA": 7433452.26917242,
+        "SHAPELEN": 16549.7297602926,
+        "CENTER": [-77.01722957230494, 38.82267366915729],
+        "POSITIVE_CASES": 1253,
+        "AVERAGE_INCOME": 23102.8,
+        "TOTAL_POPULATION": 17336,
+        "RELATIVE_VACCINATED": 8.07
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.01722957230494, 38.82267366915729]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 20,
+        "DC_HPN_NAME": "FORT DUPONT",
+        "CODE": "N20",
+        "NAME": "N20 FORT DUPONT",
+        "SHAPEAREA": 3057787.71209882,
+        "SHAPELEN": 8299.98351848337,
+        "CENTER": [-76.94679517878588, 38.88767479052421],
+        "POSITIVE_CASES": 1212,
+        "AVERAGE_INCOME": 29148,
+        "TOTAL_POPULATION": 16120,
+        "RELATIVE_VACCINATED": 9.54
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.94679517878588, 38.88767479052421]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 21,
+        "DC_HPN_NAME": "FORT LINCOLN/GATEWAY",
+        "CODE": "N21",
+        "NAME": "N21 FORT LINCOLN/GATEWAY",
+        "SHAPEAREA": 7549506.86235567,
+        "SHAPELEN": 12652.115515851401,
+        "CENTER": [-76.96883767017746, 38.91490721655237],
+        "POSITIVE_CASES": 942,
+        "AVERAGE_INCOME": 50138,
+        "TOTAL_POPULATION": 9251,
+        "RELATIVE_VACCINATED": 20.69
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.96883767017746, 38.91490721655237]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 22,
+        "DC_HPN_NAME": "GEORGETOWN",
+        "CODE": "N22",
+        "NAME": "N22 GEORGETOWN",
+        "SHAPEAREA": 1774038.14162312,
+        "SHAPELEN": 6181.11824412385,
+        "CENTER": [-77.0722727378975, 38.90423664462146],
+        "POSITIVE_CASES": 440,
+        "AVERAGE_INCOME": 62185.5,
+        "TOTAL_POPULATION": 8358,
+        "RELATIVE_VACCINATED": 9.29
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0722727378975, 38.90423664462146]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 23,
+        "DC_HPN_NAME": "GEORGETOWN EAST",
+        "CODE": "N23",
+        "NAME": "N23 GEORGETOWN EAST",
+        "SHAPEAREA": 3810070.7744515,
+        "SHAPELEN": 11937.1251534116,
+        "CENTER": [-77.05915912756036, 38.90406259062559],
+        "POSITIVE_CASES": 713,
+        "AVERAGE_INCOME": 97851.83333333333,
+        "TOTAL_POPULATION": 14602,
+        "RELATIVE_VACCINATED": 22.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.05915912756036, 38.90406259062559]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 27,
+        "DC_HPN_NAME": "KENT/PALISADES",
+        "CODE": "N27",
+        "NAME": "N27 KENT/PALISADES",
+        "SHAPEAREA": 10573154.8310229,
+        "SHAPELEN": 14456.5605613915,
+        "CENTER": [-77.101586765674, 38.917334784427744],
+        "POSITIVE_CASES": 583,
+        "AVERAGE_INCOME": 140863.75,
+        "TOTAL_POPULATION": 20005,
+        "RELATIVE_VACCINATED": 18.72
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.101586765674, 38.917334784427744]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 25,
+        "DC_HPN_NAME": "HILL EAST",
+        "CODE": "N25",
+        "NAME": "N25 HILL EAST",
+        "SHAPEAREA": 1683673.91634063,
+        "SHAPELEN": 6498.356814624291,
+        "CENTER": [-76.98548948076285, 38.881323769034104],
+        "POSITIVE_CASES": 618,
+        "AVERAGE_INCOME": 67107.25,
+        "TOTAL_POPULATION": 10819,
+        "RELATIVE_VACCINATED": 14.93
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.98548948076285, 38.881323769034104]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 26,
+        "DC_HPN_NAME": "HISTORIC ANACOSTIA",
+        "CODE": "N26",
+        "NAME": "N26 HISTORIC ANACOSTIA",
+        "SHAPEAREA": 2261025.10044771,
+        "SHAPELEN": 6433.38807476689,
+        "CENTER": [-76.9851525800282, 38.86060054193799],
+        "POSITIVE_CASES": 1089,
+        "AVERAGE_INCOME": 24664.125,
+        "TOTAL_POPULATION": 11986,
+        "RELATIVE_VACCINATED": 9.11
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.9851525800282, 38.86060054193799]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 28,
+        "DC_HPN_NAME": "KINGMAN PARK",
+        "CODE": "N28",
+        "NAME": "N28 KINGMAN PARK",
+        "SHAPEAREA": 1831714.60001372,
+        "SHAPELEN": 6061.694060008401,
+        "CENTER": [-76.97847923629246, 38.89397405902378],
+        "POSITIVE_CASES": 847,
+        "AVERAGE_INCOME": 66249.1,
+        "TOTAL_POPULATION": 16299,
+        "RELATIVE_VACCINATED": 16.17
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.97847923629246, 38.89397405902378]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 46,
+        "DC_HPN_NAME": "TWINING",
+        "CODE": "N46",
+        "NAME": "N46 TWINING",
+        "SHAPEAREA": 6029758.91785734,
+        "SHAPELEN": 13702.996269191899,
+        "CENTER": [-76.96045535483016, 38.870522410241094],
+        "POSITIVE_CASES": 1297,
+        "AVERAGE_INCOME": 36312.3,
+        "TOTAL_POPULATION": 17104,
+        "RELATIVE_VACCINATED": 13.65
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.96045535483016, 38.870522410241094]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 47,
+        "DC_HPN_NAME": "U ST/PLEASANT",
+        "CODE": "N47",
+        "NAME": "N47 U ST/PLEASANT",
+        "SHAPEAREA": 2217203.68073651,
+        "SHAPELEN": 7531.41798131054,
+        "CENTER": [-77.02205677166833, 38.920887565665076],
+        "POSITIVE_CASES": 1097,
+        "AVERAGE_INCOME": 59954.125,
+        "TOTAL_POPULATION": 19902,
+        "RELATIVE_VACCINATED": 15.12
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.02205677166833, 38.920887565665076]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 48,
+        "DC_HPN_NAME": "UNION STATION",
+        "CODE": "N48",
+        "NAME": "N48 UNION STATION",
+        "SHAPEAREA": 2289590.73326628,
+        "SHAPELEN": 7333.2298726893705,
+        "CENTER": [-76.99942161805437, 38.90047796641427],
+        "POSITIVE_CASES": 1177,
+        "AVERAGE_INCOME": 68888.7,
+        "TOTAL_POPULATION": 16602,
+        "RELATIVE_VACCINATED": 24.37
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.99942161805437, 38.90047796641427]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 49,
+        "DC_HPN_NAME": "WASHINGTON HIGHLANDS",
+        "CODE": "N49",
+        "NAME": "N49 WASHINGTON HIGHLANDS",
+        "SHAPEAREA": 858310.033940381,
+        "SHAPELEN": 5106.299897562811,
+        "CENTER": [-76.99552460939658, 38.83418866283951],
+        "POSITIVE_CASES": 453,
+        "AVERAGE_INCOME": 26531.5,
+        "TOTAL_POPULATION": 5588,
+        "RELATIVE_VACCINATED": 10.52
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.99552460939658, 38.83418866283951]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 50,
+        "DC_HPN_NAME": "WOODLEY PARK",
+        "CODE": "N50",
+        "NAME": "N50 WOODLEY PARK",
+        "SHAPEAREA": 4538185.36603769,
+        "SHAPELEN": 10807.8688803167,
+        "CENTER": [-77.06135827037716, 38.92873964567085],
+        "POSITIVE_CASES": 416,
+        "AVERAGE_INCOME": 97869.875,
+        "TOTAL_POPULATION": 13313,
+        "RELATIVE_VACCINATED": 20.69
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.06135827037716, 38.92873964567085]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 51,
+        "DC_HPN_NAME": "WOODRIDGE",
+        "CODE": "N51",
+        "NAME": "N51 WOODRIDGE",
+        "SHAPEAREA": 3006145.31609814,
+        "SHAPELEN": 8294.5023643253,
+        "CENTER": [-76.97959399592935, 38.941047356201224],
+        "POSITIVE_CASES": 603,
+        "AVERAGE_INCOME": 56410.75,
+        "TOTAL_POPULATION": 8053,
+        "RELATIVE_VACCINATED": 20.87
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.97959399592935, 38.941047356201224]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 29,
+        "DC_HPN_NAME": "LAMOND RIGGS",
+        "CODE": "N29",
+        "NAME": "N29 LAMOND RIGGS",
+        "SHAPEAREA": 3145787.46328915,
+        "SHAPELEN": 10988.3733848484,
+        "CENTER": [-77.00400663904877, 38.95788126432239],
+        "POSITIVE_CASES": 957,
+        "AVERAGE_INCOME": 44004.875,
+        "TOTAL_POPULATION": 11667,
+        "RELATIVE_VACCINATED": 19.52
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.00400663904877, 38.95788126432239]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 30,
+        "DC_HPN_NAME": "LINCOLN HEIGHTS",
+        "CODE": "N30",
+        "NAME": "N30 LINCOLN HEIGHTS",
+        "SHAPEAREA": 3545960.78948516,
+        "SHAPELEN": 8342.0771320059,
+        "CENTER": [-76.9260449308598, 38.898460364182874],
+        "POSITIVE_CASES": 1418,
+        "AVERAGE_INCOME": 27895.6,
+        "TOTAL_POPULATION": 15550,
+        "RELATIVE_VACCINATED": 11.22
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.9260449308598, 38.898460364182874]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 31,
+        "DC_HPN_NAME": "LOGAN CIRCLE/SHAW",
+        "CODE": "N31",
+        "NAME": "N31 LOGAN CIRCLE/SHAW",
+        "SHAPEAREA": 1917442.80018753,
+        "SHAPELEN": 6649.19331222443,
+        "CENTER": [-77.02982023260574, 38.909476329313065],
+        "POSITIVE_CASES": 1601,
+        "AVERAGE_INCOME": 68307.57142857143,
+        "TOTAL_POPULATION": 28520,
+        "RELATIVE_VACCINATED": 15.96
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.02982023260574, 38.909476329313065]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 32,
+        "DC_HPN_NAME": "MARSHALL HEIGHTS",
+        "CODE": "N32",
+        "NAME": "N32 MARSHALL HEIGHTS",
+        "SHAPEAREA": 2789752.22434864,
+        "SHAPELEN": 7393.4089358827805,
+        "CENTER": [-76.93189579859528, 38.88323764482366],
+        "POSITIVE_CASES": 1427,
+        "AVERAGE_INCOME": 29369.666666666668,
+        "TOTAL_POPULATION": 17324,
+        "RELATIVE_VACCINATED": 9.6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.93189579859528, 38.88323764482366]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 33,
+        "DC_HPN_NAME": "MICHIGAN PARK",
+        "CODE": "N33",
+        "NAME": "N33 MICHIGAN PARK",
+        "SHAPEAREA": 3261863.80894755,
+        "SHAPELEN": 8779.47095875473,
+        "CENTER": [-76.99889403709368, 38.94458238902228],
+        "POSITIVE_CASES": 1073,
+        "AVERAGE_INCOME": 42973.666666666664,
+        "TOTAL_POPULATION": 13987,
+        "RELATIVE_VACCINATED": 15.86
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.99889403709368, 38.94458238902228]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 34,
+        "DC_HPN_NAME": "MOUNT PLEASANT",
+        "CODE": "N34",
+        "NAME": "N34 MOUNT PLEASANT",
+        "SHAPEAREA": 947068.619446332,
+        "SHAPELEN": 4474.74728134453,
+        "CENTER": [-77.04225155153708, 38.932294899056146],
+        "POSITIVE_CASES": 754,
+        "AVERAGE_INCOME": 49074,
+        "TOTAL_POPULATION": 12446,
+        "RELATIVE_VACCINATED": 14.8
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.04225155153708, 38.932294899056146]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 36,
+        "DC_HPN_NAME": "NAVAL STATION & AIR FORCE",
+        "CODE": "N36",
+        "NAME": "N36 NAVAL STATION & AIR FORCE",
+        "SHAPEAREA": 9727117.01913701,
+        "SHAPELEN": 17353.6022869323,
+        "CENTER": [-77.03535096334089, 38.83803603835633],
+        "POSITIVE_CASES": 106,
+        "AVERAGE_INCOME": 47582,
+        "TOTAL_POPULATION": 4746,
+        "RELATIVE_VACCINATED": 0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.03535096334089, 38.83803603835633]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 37,
+        "DC_HPN_NAME": "NAYLOR/HILLCREST",
+        "CODE": "N37",
+        "NAME": "N37 NAYLOR/HILLCREST",
+        "SHAPEAREA": 3588005.57618932,
+        "SHAPELEN": 9284.161187425421,
+        "CENTER": [-76.96534126064782, 38.8622308230192],
+        "POSITIVE_CASES": 1392,
+        "AVERAGE_INCOME": 31001,
+        "TOTAL_POPULATION": 17817,
+        "RELATIVE_VACCINATED": 11.64
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.96534126064782, 38.8622308230192]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 38,
+        "DC_HPN_NAME": "PETWORTH",
+        "CODE": "N38",
+        "NAME": "N38 PETWORTH",
+        "SHAPEAREA": 2077929.78503578,
+        "SHAPELEN": 5858.09359875407,
+        "CENTER": [-77.01769581570932, 38.94532495312025],
+        "POSITIVE_CASES": 1257,
+        "AVERAGE_INCOME": 40290.125,
+        "TOTAL_POPULATION": 14450,
+        "RELATIVE_VACCINATED": 18.21
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.01769581570932, 38.94532495312025]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 39,
+        "DC_HPN_NAME": "SAINT ELIZABETHS",
+        "CODE": "N39",
+        "NAME": "N39 SAINT ELIZABETHS",
+        "SHAPEAREA": 4144971.14414195,
+        "SHAPELEN": 11451.7790007046,
+        "CENTER": [-76.99900684168503, 38.855425062349426],
+        "POSITIVE_CASES": 642,
+        "AVERAGE_INCOME": 21551,
+        "TOTAL_POPULATION": 6705,
+        "RELATIVE_VACCINATED": 11
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.99900684168503, 38.855425062349426]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 40,
+        "DC_HPN_NAME": "SHEPHERD PARK",
+        "CODE": "N40",
+        "NAME": "N40 SHEPHERD PARK",
+        "SHAPEAREA": 3768851.4431715,
+        "SHAPELEN": 9866.46141637961,
+        "CENTER": [-77.03925865120891, 38.97839024022413],
+        "POSITIVE_CASES": 540,
+        "AVERAGE_INCOME": 68366.75,
+        "TOTAL_POPULATION": 8696,
+        "RELATIVE_VACCINATED": 19.24
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.03925865120891, 38.97839024022413]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 41,
+        "DC_HPN_NAME": "SOUTH COLUMBIA HEIGHTS",
+        "CODE": "N41",
+        "NAME": "N41 SOUTH COLUMBIA HEIGHTS",
+        "SHAPEAREA": 597927.018723309,
+        "SHAPELEN": 3141.70018687692,
+        "CENTER": [-77.03208744076697, 38.923139145077116],
+        "POSITIVE_CASES": 757,
+        "AVERAGE_INCOME": 46248.25,
+        "TOTAL_POPULATION": 10365,
+        "RELATIVE_VACCINATED": 14.65
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.03208744076697, 38.923139145077116]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 42,
+        "DC_HPN_NAME": "STADIUM ARMORY",
+        "CODE": "N42",
+        "NAME": "N42 STADIUM ARMORY",
+        "SHAPEAREA": 2017567.78514599,
+        "SHAPELEN": 6712.103637154881,
+        "CENTER": [-76.97461215202232, 38.88948970413013],
+        "POSITIVE_CASES": 257,
+        "AVERAGE_INCOME": 21076,
+        "TOTAL_POPULATION": 2654,
+        "RELATIVE_VACCINATED": 0.43
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.97461215202232, 38.88948970413013]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 43,
+        "DC_HPN_NAME": "SW/WATERFRONT",
+        "CODE": "N43",
+        "NAME": "N43 SW/WATERFRONT",
+        "SHAPEAREA": 5756527.32209462,
+        "SHAPELEN": 11899.4846249855,
+        "CENTER": [-77.00771712647398, 38.87979043427455],
+        "POSITIVE_CASES": 1694,
+        "AVERAGE_INCOME": 58568.4,
+        "TOTAL_POPULATION": 19143,
+        "RELATIVE_VACCINATED": 18.13
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.00771712647398, 38.87979043427455]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 44,
+        "DC_HPN_NAME": "TENLEYTOWN",
+        "CODE": "N44",
+        "NAME": "N44 TENLEYTOWN",
+        "SHAPEAREA": 5348787.78495435,
+        "SHAPELEN": 10808.8466488841,
+        "CENTER": [-77.0785854889562, 38.94841859116585],
+        "POSITIVE_CASES": 593,
+        "AVERAGE_INCOME": 111688.16666666667,
+        "TOTAL_POPULATION": 18099,
+        "RELATIVE_VACCINATED": 21.85
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0785854889562, 38.94841859116585]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": 45,
+        "DC_HPN_NAME": "TRINIDAD",
+        "CODE": "N45",
+        "NAME": "N45 TRINIDAD",
+        "SHAPEAREA": 3173491.83015828,
+        "SHAPELEN": 8692.334367812671,
+        "CENTER": [-76.98196730264908, 38.905103336113626],
+        "POSITIVE_CASES": 1421,
+        "AVERAGE_INCOME": 30522.5,
+        "TOTAL_POPULATION": 17497,
+        "RELATIVE_VACCINATED": 11.86
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.98196730264908, 38.905103336113626]
+      }
+    }
+  ]
+}
