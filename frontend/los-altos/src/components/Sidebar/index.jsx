@@ -28,15 +28,15 @@ const Sidebar = () => {
         style={{ zIndex: 10, width: '10%', height: '80vh' }}
       >
         <Box
-          p="40px"
+          p="20px"
           color="white"
           mt="4"
-          bg="teal.500"
+          bg="#1a1a1aEF"
           rounded="md"
           shadow="md"
         >
           <VStack
-            divider={<Divider borderColor="gray.200" />}
+            divider={<Divider borderColor="gray.600" />}
             spacing={4}
             align="stretch"
           >
