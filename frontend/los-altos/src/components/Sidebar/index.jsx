@@ -95,7 +95,7 @@ const Sidebar = () => {
             <VStack className="negCorrLegend" spacing={3}>
               <Text className="legendHeader">Negative Correlation</Text>
               <Tooltip label="-1.00  -  1.00" bg="#262626" color="white">
-                <Box w="90%" h="20px" bgGradient="linear(to-r, #dae600, #262b01)" rounded="sm"></Box>
+                <Box w="90%" h="20px" bgGradient="linear(to-r, #f00ec6, #262b01)" rounded="sm"></Box>
               </Tooltip>
             </VStack>
           </VStack>
