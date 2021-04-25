@@ -70,6 +70,12 @@ const Sidebar = () => {
                 </Tooltip>
               </HStack>
             </VStack>
+            <VStack className="avgIncomeLegend" spacing={3}>
+              <Text className="legendHeader">Average Income</Text>
+              <Tooltip label="$21076  -  $165589" bg="#262626" color="white">
+                <Box w="90%" h="20px" bgGradient="linear(to-r, #fa1100, #00ff11)" rounded="sm"></Box>
+              </Tooltip>
+            </VStack>
             <VStack className="casesLegend" spacing={3}>
               <Text className="legendHeader">Cases per Capita</Text>
               <HStack>
